@@ -12,6 +12,6 @@ struct Index {
       }
       .width('100%')
     }
-    .height('100%')
+    .height('100%').backgroundColor(0x666666)
   }
 }
