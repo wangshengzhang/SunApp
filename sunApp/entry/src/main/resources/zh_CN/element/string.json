@@ -9,6 +9,10 @@
       "value": "description"
     },
     {
+      "name": "internet_reason_desc",
+      "value": "申请网络权限"
+    },
+    {
       "name": "EntryAbility_label",
       "value": "label"
     }
