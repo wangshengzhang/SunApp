@@ -6,6 +6,8 @@ import { MinePage } from '../Mine/View/MinePage'
 import { CommonConstants } from '../../constants/CommonConstants'
 import MainViewModel from '../../utils/base/MainViewModel'
 import { TabItem } from '../../components/TabItem'
+import StatusBarManager from '../../components/StatusBarManager'
+
 
 @Entry
 @Component
@@ -16,9 +18,19 @@ struct MainPage {
   @State loadingTips: string = "加载中..."
   @State loadingShow: boolean = false
 
-  build() {
-    Column() {
+  aboutToAppear() {
+    let windowStage = StatusBarManager.get().getWindowStage();
+    if (windowStage) {
+      StatusBarManager.get().setImmersiveStatusBar(windowStage)
+        .then(() => {
+           StatusBarManager.get().getSystemBarOffset();
+        });
+    }
+  }
 
+  build() {
+
+    Column() {
       Tabs({
         index: this.selectedIndex,
         barPosition: BarPosition.End,
@@ -46,6 +58,7 @@ struct MainPage {
       .barMode(BarMode.Fixed)
       .barWidth('100%')
       .scrollable(false)
+
       .barHeight($r('app.float.tab_bar_height'))
       .backgroundColor(Color.White)
       .onChange((index: number) => {
@@ -53,7 +66,11 @@ struct MainPage {
         this.homeTabSelected = index
       })
     }
+
+
+
   }
+
 
   @Builder TabBottom(item: TabItem, index: number) {
     Column() {

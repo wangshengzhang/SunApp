@@ -18,4 +18,5 @@ export class BaseViewModel {
   httpRequest(checkResult?: boolean) {
     return useRequestStatus(state => this.dispatchViewState(state), checkResult)
   }
+
 }

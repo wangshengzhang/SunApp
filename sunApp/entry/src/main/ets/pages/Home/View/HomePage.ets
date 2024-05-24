@@ -1,18 +1,27 @@
- @Entry
- @Component
- export struct HomePage {
+
+import { NavigationBar } from  '../../../components/NavigationBar'
+import { HomeModel } from '../Model/HomeModel'
+
+
+@Entry
+@Component
+ export struct HomePage  {
+
+  @State dataList: HomeModel[] = []
 
    build() {
-     Column(){
-       Navigation() {
-         // Image($r('app.media.icon_back')).width(32).height(32).margin({left:8,top:6,bottom:6})
-         // Text('我的').width(222).height(22).fontSize($r('app.float.size_16'))
-         // Row(){
-         //
-         // }.width('100%').height(60).backgroundColor($r('app.color.color_cb'))
-       }.width('100%').backgroundColor(Color.Red).mode(NavigationMode.Auto)
+      Column(){
+        NavigationBar({title: "首页", backButton: false, alpha: 1}).align(Alignment.TopStart)
+        List(){
+          ForEach(this.dataList, (item) => {
 
-     }.width('100%').height('100%').backgroundColor($r('app.color.color_cb'))
-
+          })
+        }
+      }
+     .height('100%')
+     .width('100%')
+     .backgroundColor(Color.Pink).justifyContent(FlexAlign.Start).alignItems(HorizontalAlign.Start)
    }
-  }
+
+
+}

@@ -1,11 +1,11 @@
 import router from '@ohos.router'
+
 @Entry
 @Component
 struct SplashPage {
 
   @State isJumpIn :boolean = false
   @State pageUrl : string = "pages/Splash/MainPage"
-
 
   aboutToAppear(){
     setTimeout(()=>{
@@ -26,12 +26,4 @@ struct SplashPage {
       }.width("100%").height("100%").backgroundColor($r("app.color.color_white"))
 
   }
-
-
-  jumperMainPage() {
-
-    router.replaceUrl({url:"pages/Test01"})
-  }
-
-
 }

@@ -1,6 +1,7 @@
-@Entry
+
+
 @Component
- struct BasePage {
+export  struct BasePage {
   build() {
     Column(){
 
