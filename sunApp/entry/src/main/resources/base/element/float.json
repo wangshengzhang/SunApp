@@ -1425,10 +1425,6 @@
       "value": "15fp"
     },
     {
-      "name": "size_text_16",
-      "value": "16fp"
-    },
-    {
       "name": "size_text_17",
       "value": "17fp"
     },
@@ -1763,6 +1759,10 @@
     {
       "name": "size_text_100",
       "value": "100fp"
+    },
+    {
+      "name": "size_text_16",
+      "value": "16fp"
     }
   ]
 }

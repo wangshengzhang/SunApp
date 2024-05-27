@@ -1,0 +1,19 @@
+{
+  "float": [
+    {
+      "name": "home_cell_width",
+      "value": "100vp"
+    },
+    {
+      "name": "home_cell_height",
+      "value": "120vp"
+    },
+
+    {
+      "name": "home_contain_width",
+      "value": "156vp"
+    },
+
+
+  ]
+}
