@@ -4,3 +4,4 @@
   .fontWeight(weightValue)
   .backgroundColor(color)
 }
+

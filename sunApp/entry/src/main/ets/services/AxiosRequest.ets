@@ -37,7 +37,7 @@ const axiosClient = new AxiosHttpRequest({
           return config
         } else {
           if (config.needJumpToLogin) {
-            Router.push(RoutePath.TestPage)
+            //Router.push(RoutePath.TestPage)
           }
           throw new AxiosError("请登录")
         }

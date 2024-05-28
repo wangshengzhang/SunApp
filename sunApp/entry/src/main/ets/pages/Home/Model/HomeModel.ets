@@ -1,14 +1,13 @@
 
 export interface HomeModel {
-  icon: string;
+  icon: Resource;
   logo: string;
   hotelName : string;
-  start : string;
+  statue : number;
   review :string;
   km : string;
   price : string;
   roomNight : string;
   taxes: string;
   numCount: string;
-
 }

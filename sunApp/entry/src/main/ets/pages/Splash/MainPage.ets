@@ -8,7 +8,6 @@ import MainViewModel from '../../utils/base/MainViewModel'
 import { TabItem } from '../../components/TabItem'
 import StatusBarManager from '../../components/StatusBarManager'
 
-
 @Entry
 @Component
 struct MainPage {
@@ -58,9 +57,8 @@ struct MainPage {
       .barMode(BarMode.Fixed)
       .barWidth('100%')
       .scrollable(false)
-
       .barHeight($r('app.float.tab_bar_height'))
-      .backgroundColor(Color.White)
+      .backgroundColor($r('app.color.color_f5f5f5'))
       .onChange((index: number) => {
         this.selectedIndex = index;
         this.homeTabSelected = index
@@ -93,12 +91,11 @@ struct MainPage {
         .margin({
           bottom: $r('app.float.tab_text_margin_bottom')
         })
-
     }
     .justifyContent(FlexAlign.Center)
     .height(CommonConstants.FULL_HEIGHT_PERCENT)
     .width(CommonConstants.FULL_WIDTH_PERCENT)
-    .backgroundColor($r("app.color.color_f5f5f5"))
+    .backgroundColor($r('app.color.color_white'))
   }
 
 }

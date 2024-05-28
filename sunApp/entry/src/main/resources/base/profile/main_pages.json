@@ -1,6 +1,8 @@
 {
   "src": [
     "pages/Splash/SplashPage",
-    "pages/Splash/MainPage"
+    "pages/Splash/MainPage",
+    "pages/Activity/View/ActivityPage"
+
   ]
 }

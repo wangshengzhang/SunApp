@@ -52,19 +52,19 @@ export struct NavigationBar {
   build() {
     Column() {
       Blank()
-        .backgroundColor($r('app.color.color_red'))
+        .backgroundColor($r('app.color.color_white'))
         .opacity(this.alpha)
       Stack({ alignContent: Alignment.Start }) {
         Stack()
           .height($r('app.float.size_50'))
           .width("100%")
           .opacity(this.alpha)
-          .backgroundColor($r("app.color.color_red"))
+          .backgroundColor($r("app.color.color_white"))
         Flex({ direction: FlexDirection.Row, alignItems: ItemAlign.Center }) {
           Text(this.title)
             .flexGrow(1)
             .textAlign(this.titleAlignment)
-            .fontColor($r('app.color.color_fff'))
+            .fontColor($r('app.color.color_black'))
             .fontSize($r('app.float.size_text_16')).fontWeight(FontWeight.Medium)
             .align(Alignment.Center)
             .maxLines(1)
@@ -77,8 +77,8 @@ export struct NavigationBar {
         if (this.backButton) {
           Stack() {
             Image($r('app.media.icon_back'))
-              .height($r('app.float.size_16'))
-              .width($r('app.float.size_16'))
+              .height($r('app.float.size_32'))
+              .width($r('app.float.size_32'))
               .align(Alignment.Center)
               .onClick(() => {
                 this.onBackClick?.()

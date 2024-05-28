@@ -9,12 +9,12 @@ export class  HomeViewModel extends BaseViewModel {
   dataList: HomeModel[] = []
   list  = [0,1,2,3,4,5,6,7,8,9,10]
   async getFunction(resultCallback? : ResultCallback) {
-    this.list.forEach(element => {
+    this.list.forEach((element,index) => {
       let home: HomeModel = {
-         icon: 'icon.png',
+         icon: $r('app.media.magic_icon'),
          logo: 'logo.png',
-         hotelName: 'Hotel Name',
-         start: 'Start Date',
+         hotelName: 'Hotel Name ' + index.toString(),
+         statue: index % 2,
          review: 'Review',
          km: 'Distance',
          price: 'Price',

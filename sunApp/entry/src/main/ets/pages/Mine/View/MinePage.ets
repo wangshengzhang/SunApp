@@ -10,6 +10,6 @@ export struct MinePage {
     }
     .height('100%')
     .width('100%')
-    .backgroundColor(Color.White).justifyContent(FlexAlign.Start).alignItems(HorizontalAlign.Start)
+    .backgroundColor($r('app.color.color_f5f5f5')).justifyContent(FlexAlign.Start).alignItems(HorizontalAlign.Start)
   }
 }
