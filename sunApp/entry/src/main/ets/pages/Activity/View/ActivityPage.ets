@@ -6,33 +6,32 @@ import ActivityViewModel from '../ViewModel/ActivityViewModel'
 @Entry
 @Component
 struct ActivityPage {
-  @State dataList: ActivityModel[] = []
-  @State barHeight : number = 90
-  aboutToAppear(){
-    ActivityViewModel.getActivity((list)=>{
-      this.dataList = list
-    })
-  }
 
+  /*导航栏的高度*/
+  @State barHeight : number = 90
+
+  /* 获取导航栏的状态栏高度 */
   setSystemStatusBar() {
-    let context = getContext(this)
-    window.getLastWindow(context, (error, data) => {
+    window.getLastWindow(getContext(this),(error, data) => {
       //1、设置系统状态栏
       let avoidArea = data.getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM)
-      //这里为什么要自己设置一个高度？因为系统返回的高度太高了，并不能正确的返回系统状态栏的高度，自己二次设置一个接近的值
+      //2、设置初始化的 高度
       avoidArea.topRect.height = 90
-      let statusBarHeight = avoidArea.topRect.height
-      let bottomHeight = avoidArea.bottomRect.height
-      this.barHeight =  bottomHeight + statusBarHeight
+      //3、设置 该组件 的bar 高度
+      this.barHeight =  avoidArea.topRect.height + avoidArea.bottomRect.height
     })
   }
-
+  /* 进入该页面的获取 viewModel */
+  aboutToAppear(){
+    ActivityViewModel.getActivity()
+  }
+  /*开始布局*/
   build() {
     Column() {
        Stack() {
          /// 图片的列表数据源
          List() {
-           ForEach(this.dataList, (item,index) => {
+           ForEach(ActivityViewModel.dataSource, (item,index) => {
              activityItem(item,index)
            })
          }.ListStyle(this.barHeight)

@@ -32,7 +32,8 @@
         '198','198','64','164','136','136','136','136','334'
     ]
 
-     async getActivity(resultCallback? : ResultCallback) {
+    async getActivity(resultCallback? : ResultCallback) {
+       this.dataSource = []
        this.dataArray.forEach((element,index)=> {
          let model : ActivityModel = {
            index: index,
@@ -42,7 +43,6 @@
          }
          this.dataSource.push(model)
        });
-       resultCallback?.(this.dataSource)
      }
   }
 

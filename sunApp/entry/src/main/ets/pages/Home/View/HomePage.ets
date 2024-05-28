@@ -1,6 +1,4 @@
 
-import hilog from '@ohos.hilog'
-import router from '@ohos.router'
 import { NavigationBar } from  '../../../components/NavigationBar'
 import { RoutePath } from '../../../routes/RoutePath'
 import { Router } from '../../../routes/Router'
@@ -11,19 +9,14 @@ import  HomeViewModel from '../ViewModel/HomeViewModel'
 @Entry
 @Component
  export struct HomePage  {
-
-   @State dataList: HomeModel[] = []
    aboutToAppear() {
-      HomeViewModel.getFunction((list) => {
-         this.dataList = list
-      })
+      HomeViewModel.getFunction()
    }
-
    build() {
       Column() {
          NavigationBar({title: "首页", backButton: false, alpha: 1}).align(Alignment.TopStart)
          List() {
-             ForEach(this.dataList, (item,index) => {
+             ForEach(HomeViewModel.dataList, (item,index) => {
              itemCell(item,index)
              })
          }.width('100%').height($r('app.float.home_contain_width'))
