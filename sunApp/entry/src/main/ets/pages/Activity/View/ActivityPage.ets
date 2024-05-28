@@ -21,10 +21,12 @@ struct ActivityPage {
       this.barHeight =  avoidArea.topRect.height + avoidArea.bottomRect.height
     })
   }
+
   /* 进入该页面的获取 viewModel */
   aboutToAppear(){
     ActivityViewModel.getActivity()
   }
+
   /*开始布局*/
   build() {
     Column() {

@@ -27,11 +27,6 @@
         $r('app.media.activioty_icon_18')
     ]
 
-    dataList = [
-        '254','200','233','132','132','498','198','198','198',
-        '198','198','64','164','136','136','136','136','334'
-    ]
-
     async getActivity(resultCallback? : ResultCallback) {
        this.dataSource = []
        this.dataArray.forEach((element,index)=> {
@@ -39,7 +34,6 @@
            index: index,
            icon:element,
            width: '100%',
-           height: this.dataList[index]
          }
          this.dataSource.push(model)
        });

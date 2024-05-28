@@ -8,7 +8,9 @@ type ValueType = number | string | boolean | Array<number> | Array<string> | Arr
 
 
 export class StorageUtils {
+
   private constructor() {
+
   }
 
   static readonly context = getContext();

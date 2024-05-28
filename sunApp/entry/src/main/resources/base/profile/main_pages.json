@@ -2,7 +2,8 @@
   "src": [
     "pages/Splash/SplashPage",
     "pages/Splash/MainPage",
-    "pages/Activity/View/ActivityPage"
+    "pages/Activity/View/ActivityPage",
+    "pages/Login/View/LoginPage"
 
   ]
 }
