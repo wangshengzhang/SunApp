@@ -19,6 +19,52 @@
     {
       "name": "HomeActivity_banner",
       "value": "热爱计划"
+    },
+    {
+      "name": "Login_account_placeholder",
+      "value": "请输入手机号"
+    },
+    {
+      "name": "Login_pwd_placeholder",
+      "value": "请输入验证码"
+    },
+    {
+      "name": "Login_code_placeholder",
+      "value": "获取验证码"
+    },{
+      "name": "Login_Btn_title",
+      "value": "立即登陆"
+    },
+    {
+      "name": "Login_agree_title",
+      "value": "登陆即同意"
+    },{
+      "name": "Login_agree_policy",
+      "value": "《百达星系隐私政策》、 《百达星"
+    },
+    {
+      "name": "Login_agree_policy_half",
+      "value": "系服务条款》"
+    },
+    {
+      "name": "Login_agree_ICP",
+      "value": "备案序号：粤ICP备12007389号-1"
+    },
+    {
+      "name": "Login_wenXi_msg",
+      "value": "温馨提示"
+    },
+    {
+      "name": "Login_policy_Ruler",
+      "value": "为了更好地保障您的合法权益，请您先阅读并同意《百达星系隐私政策》及《百达星系服务条款》                                                 "
+    },
+    {
+      "name": "Login_Ruler_agreet_no",
+      "value": "不同意"
+    },
+    {
+      "name": "Login_Ruler_agreet",
+      "value": "同意并继续"
     }
   ]
 }

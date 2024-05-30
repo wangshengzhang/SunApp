@@ -65,7 +65,7 @@ export struct NavigationBar {
             .flexGrow(1)
             .textAlign(this.titleAlignment)
             .fontColor($r('app.color.color_black'))
-            .fontSize($r('app.float.size_text_16')).fontWeight(FontWeight.Medium)
+            .fontSize($r('app.float.size_text_18')).fontWeight(FontWeight.Bold)
             .align(Alignment.Center)
             .maxLines(1)
             .textOverflow({ overflow: TextOverflow.Ellipsis })
