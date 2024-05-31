@@ -1,5 +1,7 @@
 export class JsonUtils {
+
   private constructor() {
+
   }
 
   static stringify(data: any, space: number = 2): string {
@@ -9,4 +11,5 @@ export class JsonUtils {
   static parse(jsonString: string): any {
     return JSON.parse(jsonString);
   }
+
 }

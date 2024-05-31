@@ -17,5 +17,7 @@ export interface LoginModel {
 
   job : string; //工作
 
+  userId : string;
+
 
 }

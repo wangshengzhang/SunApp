@@ -1,6 +1,7 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
+//import {PreferencesUtil} from '../utils/tool/PreferencesUtil'
 
 export default class EntryAbility extends UIAbility {
 
@@ -12,11 +13,12 @@ export default class EntryAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
    }
 
-
    onWindowStageCreate(windowStage: window.WindowStage): void {
+
+     //PreferencesUtil.loadPreference(this.context,'OPEN_EYE_PREFERENCES')
+
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-    //
     // 1.获取应用主窗口。
     let windowClass = null;
     windowStage.getMainWindow((err, data) => {
@@ -38,7 +40,6 @@ export default class EntryAbility extends UIAbility {
       windowClass.setWindowLayoutFullScreen(true)
     })
 
-
     windowStage.loadContent("pages/Splash/SplashPage", (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', '加载应用首页内容失败. Cause: %{public}s', JSON.stringify(err) ?? '');
@@ -46,6 +47,7 @@ export default class EntryAbility extends UIAbility {
       }
       hilog.info(0x0000, 'testTag', '加载应用首页成功. Data: %{public}s', JSON.stringify(data) ?? '');
     });
+
   }
 
   onWindowStageDestroy() {
