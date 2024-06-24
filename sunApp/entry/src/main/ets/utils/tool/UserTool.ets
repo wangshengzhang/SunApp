@@ -12,14 +12,14 @@ import preferences from '@ohos.data.preferences'
     isLogin : boolean = false
     //  构造函数
     private constructor() {
-      this.loadPreference(this.)
+     // this.loadPreference(this.)
       this.getUserInfo()
-
     }
     preferencesMap: Map<string, preferences.Preferences> = new Map;
     //加载一个preference
     async loadPreference(context, name: string) {
      console.log('testTag', `开始加载Preference [${name}]`);
+
      try { //返回值是一个Promise包裹起来的preference，因此可以使用链式回调函数处理,也可以使用async/await
        let preference = await preferences.getPreferences(context, name)
        this.preferencesMap.set(name, preference)
@@ -32,7 +32,9 @@ import preferences from '@ohos.data.preferences'
    }
 
     /// 存储会员信息
-    public putUser(user : LoginModel) {
+    public async  putUser(user : LoginModel) {
+      StorageUtils.getPreferences()
+      let hasLogin = await StorageUtils.get(StorageKeys.USER_LOGIN, true)
       let userModel = JsonUtils.stringify(user)
       StorageUtils.put(StorageKeys.USER_INFO_KEY,userModel)
       this.getUserInfo()
@@ -52,7 +54,4 @@ import preferences from '@ohos.data.preferences'
        }
      )
    }
-
-
-
   }

@@ -1,7 +1,6 @@
 import dataPreferences from '@ohos.data.preferences'
-/**
- * 项目全局存储，使用ohos.data.preferences
- */
+
+
 const defaultPreferenceName = "OPEN_EYE_PREFERENCES"
 
 type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>|any;
@@ -13,6 +12,7 @@ export class StorageUtils {
 
   }
 
+
   static readonly context = getContext();
 
   /**
@@ -21,15 +21,34 @@ export class StorageUtils {
    * @returns
    */
   static async getPreferences(preferenceName: string = defaultPreferenceName) {
-    return await dataPreferences.getPreferences(this.context, preferenceName)
+
+    try {
+      dataPreferences.getPreferences(this.context, defaultPreferenceName, function (err, val) {
+        if (err) {
+          console.error("Failed to get preferences. code =" + err.code + ", message =" + err.message);
+          return;
+        }
+        preferences = val;
+        console.info("Succeeded in getting preferences.");
+      })
+    } catch (err) {
+      console.error("Failed to get preferences. code =" + err.code + ", message =" + err.message);
+    }
   }
 
   static async put(key: string, value: ValueType, preferenceName: string = defaultPreferenceName) {
-    // 获取实例
-    let preferences = await this.getPreferences(preferenceName)
-    await preferences.put(key, value)
-    //Tips Point --- 此处一定要flush，要不然不能永久序列化到本地
-    await preferences.flush()
+
+    try {
+      preferences.put(key, value, function (err) {
+        if (err) {
+          console.error("Failed to put value of 'startup'. code =" + err.code + ", message =" + err.message);
+          return;
+        }
+        console.info("Succeeded in putting value of 'startup'.");
+      })
+    } catch (err) {
+      console.error("Failed to put value of 'startup'. code =" + err.code + ", message =" + err.message);
+    }
   }
 
   /**
@@ -41,8 +60,17 @@ export class StorageUtils {
    */
   static async get(key: string, defaultValue: ValueType = "", preferenceName: string = defaultPreferenceName) {
     // 获取实例
-    let preferences = await this.getPreferences(preferenceName)
-    return preferences.get(key, defaultValue)
+    try {
+      preferences.get(key, defaultValue, function (err, val) {
+        if (err) {
+          console.error("Failed to get value of 'startup'. code =" + err.code + ", message =" + err.message);
+          return;
+        }
+        console.info("Succeeded in getting value of 'startup'. val： " + val);
+      })
+    } catch (err) {
+      console.error("Failed to get value of 'startup'. code =" + err.code + ", message =" + err.message);
+    }
   }
 
   /**

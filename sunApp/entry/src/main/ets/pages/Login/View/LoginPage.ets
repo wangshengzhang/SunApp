@@ -1,6 +1,8 @@
 import { NavigationBar } from '../../../components/NavigationBar'
 import ViewModel from  '../ViewModel/LoginViewModel'
 import {CustomDialogView}  from  '../../../components/CustomDialogView'
+import ToastUtils from '../../../utils/tool/ToastUtils'
+import validatorPhone from '../../../utils/tool/RuleUtils'
 
 @Entry
 @Component
@@ -22,7 +24,6 @@ struct LoginPage {
   build() {
 
     Column() {
-
       ///  导航栏
       NavigationBar({title: "会员登陆", backButton: false, alpha: 1}).align(Alignment.TopStart)
       /// 图片
@@ -46,6 +47,19 @@ struct LoginPage {
 
       /// 立即登陆
       Button($r('app.string.Login_Btn_title')).loginBtnType().onClick(()=>{
+
+        // 是否输入 手机号
+        // if validatorPhone(ViewModel.telPhone) {
+        //   ToastUtils("请输入手机号码")
+        //   return
+        // }
+
+        // 是否输入 验证码
+        // if (ViewModel.passWord.length > 0) {
+        //   ToastUtils("请输入验证码")
+        //   return
+        // }
+
          /// 判断 是否 已经 同意 协议
         if (this.agree == false) {
           this.dialogController.open()
